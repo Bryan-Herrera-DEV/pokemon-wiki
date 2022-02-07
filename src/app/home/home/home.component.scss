@@ -1,0 +1,140 @@
+@mixin small {
+  @media (max-width: 770px) {
+    @content;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    // overflow: hidden;
+    width: inherit;
+    height: inherit;
+    display: flex;
+
+    flex-direction: rox;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    padding: 15px;
+    max-width: 1500px;
+
+    @include small {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .s {
+        margin-top: 25px;
+      }
+    }
+
+    .f,
+    .s {
+      width: calc(100% /2);
+      color: var(--font);
+
+      h2 {
+        font-size: var(--size-uno);
+        margin-bottom: -10px;
+      }
+
+      p {
+        font-size: var(--size-cuatro);
+        color: var(--font-s);
+      }
+
+      a {
+        padding: 10px;
+        background-color: var(--btn-bck);
+        text-decoration: none;
+        color: var(--op);
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    .s {
+      width: calc(100% /2);
+      color: var(--font);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      height: 100%;
+
+
+      .card {
+        background: var(--card);
+        width: calc(100% /2);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 300px;
+
+        .img {
+          width: 100%;
+          border-radius: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .ct {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+          margin-top: -10px;
+          gap: 10px;
+
+          h3 {
+            font-size: var(--size-tres);
+            padding: 0;
+            margin: 0;
+            margin-top: 20px;
+          }
+
+          .stats {
+            margin: 0;
+
+            p {
+              margin: 0;
+            }
+          }
+        }
+
+        &:first-child {
+          transform: skew(0deg, 10deg);
+
+          .img {
+            background: linear-gradient(135deg, #FDDFDF 50%, #F5F5F5 50%);
+          }
+        }
+
+        &:last-child {
+          transform: skew(0deg, -10deg) translateY(-50px) translateX(-20px);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+          .img {
+            background: linear-gradient(135deg, #DEFDE0 50%, #98d7a5 50%);
+          }
+        }
+      }
+    }
+
+  }
+}

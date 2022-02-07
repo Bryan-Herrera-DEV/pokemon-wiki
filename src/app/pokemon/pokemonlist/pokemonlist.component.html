@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Listado pokemons</h1>
+  <input type="text" placeholder="Buscar pokemon" #txtSearch (keyup)="onSearc( txtSearch.value )">
+  <div class="buttons">
+    <div class="button_box"><button (click)="prevPage()" title="Preview Page" [disabled]="page === 0">
+        < </button>
+    </div>
+    <p>
+      <span>Page</span>
+      <span> {{actualPage}} </span>
+    </p>
+    <div class="button_box"><button (click)="nextPage()" title="Next Page"
+        [disabled]="(pokemons | filtro:page:search).length === 0">></button></div>
+  </div>
+  <div *ngIf="(pokemons | filtro:page:search).length != 0; else nomore" class="card_content">
+    <div class="card" *ngFor="let poke of pokemons | filtro:page:search;let i = index">
+      <div class="img" [style.background]="colors[poke.types[0]]">
+        <img [src]="poke.pic" [alt]="poke.name" [ngStyle]="{ 'width': '105px'}">
+      </div>
+      <div class="ct">
+        <h3> {{poke.name}} <span>#{{poke.id}}</span></h3>
+        <div class="stats">
+          Types: <Label *ngFor="let type of poke.types"> {{type}} <div
+              [ngStyle]="{ 'width': '10px', 'height': '10px', 'border-radius': '100%'}"
+              [style.background]="colors[type]"></div> </Label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template class="notf" #nomore>
+    <div class="notf">
+
+      <img src="./../../../assets/pngegg.png" class="image" alt="">
+      <p>No more pokemon found</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,13 @@
+<main class="{{theme}}">
+  <nav>
+    <a routerLink="/home">
+      <img src="./../../../assets/Pokeball.PNG.png" alt="">
+      <p>Pokemon List</p>
+    </a>
+  </nav>
+  <input class="dark-light" type="checkbox" (click)="changeTheme()" id="dark-light" name="dark-light" />
+  <label for="dark-light"></label>
+  <section style="z-index: 50000000;" class="section a_ ">
+    <router-outlet style="z-index: 50000000;"></router-outlet>
+  </section>
+</main>

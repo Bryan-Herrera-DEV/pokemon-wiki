@@ -1,0 +1,142 @@
+/* Estilos background */
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+  position: absolute;
+  visibility: hidden;
+}
+
+
+
+.dark-light:checked+label,
+.dark-light:not(:checked)+label {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 20000;
+  display: block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 200ms linear;
+  box-shadow: 0 0 25px rgba(255, 235, 167, .45);
+}
+
+.dark-light:checked+label {
+  transform: rotate(360deg);
+}
+
+.dark-light:checked+label:after,
+.dark-light:not(:checked)+label:after {
+  position: absolute;
+  content: '';
+  top: 1px;
+  left: 1px;
+  overflow: hidden;
+  z-index: 2;
+  display: block;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  background-color: #102770;
+  background-image: url('./../assets/moon.svg');
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+  opacity: 0;
+}
+
+.dark-light:checked+label:after {
+  opacity: 1;
+}
+
+.dark-light:checked+label:before,
+.dark-light:not(:checked)+label:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #def9fe;
+  background-image: url('./../assets/sun.svg');
+  background-size: 22px 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+}
+
+.dark-light:checked+label:before {
+  background-color: #000;
+}
+
+.light {
+  --background: #fff;
+  --font: #0d0d0d;
+  --op: #fff;
+  --font-s: rgb(28, 28, 28);
+  --btn-bck: #171717;
+  --card: #e3e3e3;
+  --detalles: rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  --background: #171717;
+  --font: #fff;
+  --op: #0d0d0d;
+  --font-s: rgb(222, 222, 222);
+  --btn-bck: #fff;
+  --card: #262626;
+  --detalles: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  --size-uno: clamp(35px, 5vw, 45px);
+  --size-dos: clamp(25px, 5vw, 35px);
+  --size-tres: clamp(15px, 5vw, 25px);
+  --size-cuatro: clamp(13px, 5vw, 17px);
+  --size-cinco: clamp(10px, 5vw, 15px);
+  --size-seis: clamp(8px, 5vw, 10px);
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+  color: var(--font);
+}
+
+.a_ {
+  padding: 1rem;
+  color: var(--font);
+  z-index: 5000 !important;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  padding: 15px;
+  // padding: 15px;
+
+  a {
+    text-decoration: none;
+    color: var(--font);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 200ms linear;
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+
+    img {
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+    }
+  }
+}
