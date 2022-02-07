@@ -32,7 +32,7 @@ export interface Pokemon_b {
 	order: number;
 	past_types: any[];
 	species: Species;
-	sprites: Sprites;
+	sprites: any;
 	stats: Stat[];
 	types: Type[];
 	weight: number;
@@ -71,13 +71,13 @@ export interface VersionGroupDetail {
 }
 
 export interface GenerationV {
-	"black-white": Sprites;
+	"black-white": any;
 }
 
 export interface GenerationIv {
-	"diamond-pearl": Sprites;
-	"heartgold-soulsilver": Sprites;
-	platinum: Sprites;
+	"diamond-pearl": any;
+	"heartgold-soulsilver": any;
+	platinum: any;
 }
 
 export interface Versions {
@@ -89,20 +89,6 @@ export interface Versions {
 	"generation-vi": { [key: string]: Home };
 	"generation-vii": GenerationVii;
 	"generation-viii": GenerationViii;
-}
-
-export interface Sprites {
-	back_default: null | string;
-	back_female: null;
-	back_shiny: null | string;
-	back_shiny_female: null;
-	front_default: null | string;
-	front_female: null;
-	front_shiny: null | string;
-	front_shiny_female: null;
-	other?: Other;
-	versions?: Versions;
-	animated?: Sprites;
 }
 
 export interface GenerationI {

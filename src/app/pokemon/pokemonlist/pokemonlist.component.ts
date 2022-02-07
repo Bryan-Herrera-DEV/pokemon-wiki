@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { PokemonService } from "../services/pokemon.service";
-import { map } from "rxjs/operators";
+import { map, retry } from "rxjs/operators";
 import { Pokemon } from "../interfaces/pokemon.interfaces";
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, Params, Route, Router } from "@angular/router";
 @Component({
 	selector: "app-pokemonlist",
 	templateUrl: "./pokemonlist.component.html",
@@ -31,7 +33,16 @@ export class PokemonlistComponent implements OnInit {
 	public pokemons: Pokemon[] = [];
 	public page: number = 0;
 	public search: string = "";
-	constructor(private pokemonService: PokemonService) {}
+	constructor(
+		private pokemonService: PokemonService,
+		private http: HttpClient,
+		private rutaActiva: ActivatedRoute,
+		private route: Router
+	) {}
+	redirect(id: number) {
+		console.log(id);
+		this.route.navigate(["/pokemon", id]);
+	}
 
 	ngOnInit(): void {
 		console.log(this.colors["normal"]);

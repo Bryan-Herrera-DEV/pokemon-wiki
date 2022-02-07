@@ -14,9 +14,13 @@
   </div>
   <div *ngIf="(pokemons | filtro:page:search).length != 0; else nomore" class="card_content">
     <div class="card" *ngFor="let poke of pokemons | filtro:page:search;let i = index">
-      <div class="img" [style.background]="colors[poke.types[0]]">
+
+      <div *ngIf="poke.pic; else cargaImagen" class="img" [style.background]="colors[poke.types[0]]">
         <img [src]="poke.pic" [alt]="poke.name" [ngStyle]="{ 'width': '105px'}">
       </div>
+      <ng-template #cargaImagen>
+        <section><span class="loader-1"> </span></section>
+      </ng-template>
       <div class="ct">
         <h3> {{poke.name}} <span>#{{poke.id}}</span></h3>
         <div class="stats">
@@ -24,14 +28,24 @@
               [ngStyle]="{ 'width': '10px', 'height': '10px', 'border-radius': '100%'}"
               [style.background]="colors[type]"></div> </Label>
         </div>
+        <a style="z-index: 88; cursor: pointer;" (click)="redirect(poke.id)">Go list</a>
       </div>
     </div>
   </div>
   <ng-template class="notf" #nomore>
     <div class="notf">
 
-      <img src="./../../../assets/pngegg.png" class="image" alt="">
+      <img src="assets/pngegg.png" class="image" alt="">
       <p>No more pokemon found</p>
     </div>
   </ng-template>
 </div>
+<!-- 
+  echo "# pokemon-wiki" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Bryan-Herrera-DEV/pokemon-wiki.git
+git push -u origin main
+ -->

@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="card-container">
+
+    <div *ngIf="pokemonRecibido.name.length > 0 " class="pokemon-container">
+
+      <div class="power-level">
+        #<span> {{ pokemonRecibido.id }} </span>
+        <div class="pokemon-snap">
+          <img [src]="pokemonRecibido.sprites.front_default" />
+        </div>
+        <!-- !.pokemon-snap -->
+        <div class="half-circle"></div>
+      </div>
+      <!-- !.power-level -->
+
+      <div class="poke-card">
+
+        <div class="name">
+          <h1 style="text-transform: capitalize;">{{pokemonRecibido.name}}</h1>
+          <div class="hp">
+            HP {{pokemonRecibido.stats[0].base_stat}}
+          </div>
+        </div>
+
+        <ul class="stats">
+          <li>
+            <div class="tipp">
+              <p *ngIf="pokemonRecibido.types[0]">
+                {{pokemonRecibido.types[0].type.name}}&nbsp;
+              </p>
+              <p *ngIf="pokemonRecibido.types[1]">
+                {{'/&nbsp;' +
+                pokemonRecibido.types[1].type.name}}
+              </p>
+            </div>
+            <span>Type</span>
+          </li>
+          <li> {{pokemonRecibido.weight * 100 / 1000 }} kg<br /><span>Weight</span></li>
+          <li> {{pokemonRecibido.height * 10 / 100}} m<br /><span>Height</span></li>
+        </ul>
+
+
+        <!-- !.info -->
+
+        <ul class="abilities">
+          <li style="text-transform: capitalize;" *ngFor="let stat of pokemonRecibido.stats">
+            <div *ngIf="stat.stat.name != 'hp'">
+
+              {{stat.stat.name}} <br>
+              <span>Effort: {{stat.effort}}</span>
+              <span class="power"> {{stat.base_stat}} </span>
+            </div>
+          </li>
+          <!-- <li>
+            HP<br />
+            <span>Ghost</span>
+            <span class="power">15</span>
+          </li>
+          <li>
+            Nightmare<br />
+            <span>Ghost</span>
+            <span class="power">60</span>
+            <ul class="super">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li> -->
+        </ul> <!-- !.abilities -->
+
+
+
+        <div class="transfer">
+          <div *ngIf="evolutes_from.length > 0">
+            <p>Evolutes From: {{evolutes_from}} </p>
+          </div>
+          <button class="button" (click)="redirect()">Go Back</button>
+        </div>
+
+      </div>
+      <!-- !.poke-card -->
+
+    </div>
+    <!-- !.pokemon-container -->
+
+  </div>
+</div>
