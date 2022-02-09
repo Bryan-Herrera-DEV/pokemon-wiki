@@ -138,3 +138,27 @@
 
   }
 }
+
+footer {
+  z-index: 99;
+  position: absolute;
+  display: flex;
+  color: var(--font);
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  background: var(--card);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--size-cinco);
+
+  a {
+    color: var(--font);
+
+    &:hover {
+      color: rgb(59, 59, 240);
+    }
+  }
+}
