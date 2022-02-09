@@ -7,9 +7,9 @@ import { PokemonModule } from "./pokemon/pokemon.module";
 import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from "./home/home/home.component";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { NotFoundComponent } from './middlewares/not-found/not-found.component';
+import { NotFoundComponent } from "./middlewares/not-found/not-found.component";
 @NgModule({
-	declarations: [AppComponent, HomeComponent, NotFoundComponent],
+	declarations: [AppComponent, NotFoundComponent],
 	imports: [BrowserModule, AppRoutingModule, PokemonModule, HttpClientModule],
 	providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 	bootstrap: [AppComponent],
