@@ -21,3 +21,20 @@ Este proyecto contiene 2 ramas:
 # Una vez instalado todo ejecutar
 > ng serve
 ```
+
+
+## Pasos para compilar el proyecto en modo produccion
+
+```shell
+# Clonar el proyecto en la rama main
+> git clone https://github.com/Bryan-Herrera-DEV/pokemon-wiki.git
+
+# Entrar a la carpeta del proyecto
+> cd pokemon-wiki
+
+# Instalar las dependencias del proyecto
+> npm i
+
+# Una vez instalado todo ejecutar
+> ng build --base-href=<este parametro es opcional, en caso de querer desplegarlo en un servidor poner aqui la URL>
+```
